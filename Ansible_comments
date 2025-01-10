@@ -1,0 +1,47 @@
+12 apt install ansible -y
+ 13 ansible --version
+ 14 mkdir /etc/ansible
+ 15 cd /etc/ansible/
+ 16 ls
+ 17 vi hosts
+ 18 ansible all -m ping
+ 19 vi hosts 
+ 20 ansible all -m ping
+ 21 vi hosts 
+ 22 ansible all -m ping
+ 23 vi hosts 
+ 24 ansible all -m ping
+ 25 ansible Java_servers -m ping
+ 26 ansible 172.31.19.122 -m ping
+ 27 ansible Java_servers -m shell -a "touch /home/ubuntu/1.txt"
+ 28 ansible Java_servers -m shell -a "ls -l /home/ubuntu"
+ 29 ls
+ 30 vi text.txt
+ 31 ansible Java_servers -m copy -a "src=/etc/ansible/text.txt dest=/home/ubuntu" 
+ 32 ansible Java_servers -m shell -a "ls -l /home/ubuntu"
+ 33 touch text2.txt
+ 34 chmod 777 text.txt
+ 35 chmod 777 text2.txt
+ 36 ls -l
+ 37 ansible Java_servers -m copy -a "src=/etc/ansible/text2.txt dest=/home/ubuntu" 
+ 38 ansible Java_servers -m shell -a "ls -l /home/ubuntu"
+ 39 ansible Java_servers -m file -a "dest=/home/ubuntu/dir mode=777 owner=root group=root 
+state=directory"
+ 40 ansible Java_servers -m file -a "dest=/home/ubuntu/dir1 state=directory"
+ 41 ls -l
+ 42 ansible Java_servers -m file -a "dest=/home/ubuntu/file1 state=file"
+ 43 ansible Java_servers -m file -a "dest=/home/ubuntu/dir1 mode=777 state=directory"
+ 44 ansible Java_servers -m shell -a "ls -l /home/ubuntu"
+ 45 ansible Java_servers -m copy -a 'dest=/home/ubuntu/newfile content="This is a sample 
+file"'
+ 46 ansible Java_servers -m shell -a "cat /home/ubuntu/newfile"
+ 47 ansible Java_servers -m apt -a "name=git state=present"
+ 48 ansible Java_servers -m apt -a "name=git state=absent"
+ 49 ansible Java_servers -m shell -a "git --version
+ 50 ansible Java_servers -m apt -a "name=git state=present"
+ 51 ansible Java_servers -m shell -a "git --version"
+ 52 ansible-vault view file.yml
+ 53 ansible-vault create file.yml
+ 54 ansible-vault encrypt file.yml
+ 55 ansible-vault decrypt file.yml
+ 56 ansible-vault edit file.yml
