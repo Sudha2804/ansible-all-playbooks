@@ -1,8 +1,0 @@
----
-- hosts: all
-  tasks:
-    - name: create_new_file
-      copy:
-        content: "Welcome"
-        dest: /home/ubuntu/file.txt
-
